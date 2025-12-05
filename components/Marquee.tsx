@@ -31,24 +31,12 @@ const universities = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Princeton_seal.svg/150px-Princeton_seal.svg.png"
   },
   {
-    name: "Columbia",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Columbia_University_shield.svg/150px-Columbia_University_shield.svg.png"
-  },
-  {
     name: "UCL",
     logo: "https://upload.wikimedia.org/wikipedia/sco/thumb/d/d1/University_College_London_logo.svg/200px-University_College_London_logo.svg.png"
   },
   {
-    name: "Imperial",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Imperial_College_London_crest.svg/150px-Imperial_College_London_crest.svg.png"
-  },
-  {
     name: "Toronto",
     logo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Utoronto_coa.svg/150px-Utoronto_coa.svg.png"
-  },
-  {
-    name: "Melbourne",
-    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/University_of_Melbourne_logo.svg/200px-University_of_Melbourne_logo.svg.png"
   },
 ];
 
