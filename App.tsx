@@ -193,7 +193,22 @@ const Hero = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tighter"
             >
               Your Gateway to{' '}
-              <span className="text-brand-600">Global Education</span>
+              <span
+                className="text-brand-600 inline-block relative text-[1.2em]"
+                style={{
+                  textShadow: `
+                    1px 1px 0 #5b21b6,
+                    2px 2px 0 #5b21b6,
+                    3px 3px 0 #4c1d95,
+                    4px 4px 0 #4c1d95,
+                    5px 5px 10px rgba(237, 58, 195, 0.3)
+                  `,
+                  transform: 'perspective(500px) rotateX(5deg)',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                Global Education
+              </span>
             </motion.h1>
 
             <motion.p
