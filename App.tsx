@@ -119,6 +119,39 @@ const Hero = () => {
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 z-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
 
+      {/* Subtle Doodles - Minimal */}
+      {/* Sparkle Star - Top Left */}
+      <motion.svg
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 0.6, scale: 1 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
+        className="absolute top-36 left-[8%] w-6 h-6 text-brand-300 hidden lg:block"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+      </motion.svg>
+
+      {/* Small Circle - Right Side */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5, y: [0, -8, 0] }}
+        transition={{ delay: 0.6, duration: 3, repeat: Infinity, repeatType: "reverse" }}
+        className="absolute top-1/3 right-[5%] w-4 h-4 rounded-full border-2 border-brand-300 hidden lg:block"
+      />
+
+      {/* Dots Pattern - Bottom Right */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ delay: 1, duration: 0.5 }}
+        className="absolute bottom-28 right-[8%] hidden lg:grid grid-cols-3 gap-1.5"
+      >
+        {[...Array(9)].map((_, i) => (
+          <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-200" />
+        ))}
+      </motion.div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
