@@ -326,65 +326,169 @@ const ExpertGuidance = () => {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-brand-900 rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden shadow-2xl shadow-brand-900/20">
-          {/* Decorative circles */}
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-700 rounded-full blur-3xl opacity-50"></div>
-          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-brand-500 rounded-full blur-3xl opacity-30"></div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="relative rounded-[2.5rem] p-8 md:p-12 lg:p-16 overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 30%, #5b21b6 60%, #4c1d95 100%)'
+          }}
+        >
+          {/* Decorative Background Elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            {/* Large gradient orb - top right */}
+            <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-gradient-to-br from-brand-500/40 to-brand-700/20 rounded-full blur-3xl"></div>
+            {/* Medium gradient orb - bottom left */}
+            <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-gradient-to-tr from-brand-400/30 to-transparent rounded-full blur-3xl"></div>
+            {/* Small accent orb */}
+            <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-brand-500/20 rounded-full blur-2xl"></div>
+          </div>
 
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
             <div>
-              <div className="inline-block px-4 py-1.5 rounded-full bg-brand-800 text-brand-200 text-sm font-semibold mb-6 border border-brand-700">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-semibold mb-8 border border-white/20"
+              >
+                <PiSparkleFill className="text-brand-300" size={16} />
                 Expert Guidance
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Unlock Your Academic Future</h2>
-              <p className="text-brand-100 text-lg mb-8 leading-relaxed">
-                Transform your study abroad dreams into reality with our personalized consultation. Our experts have guided 10,000+ students to success.
-              </p>
+              </motion.div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+              >
+                Unlock Your<br />Academic Future
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="text-white/80 text-lg mb-10 leading-relaxed max-w-lg"
+              >
+                Transform your study abroad dreams into reality with our personalized consultation. Our experts have guided 10,000+ students to success.
+              </motion.p>
+
+              {/* Benefits Grid */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-10"
+              >
                 {[
-                  "100% Free: No hidden charges",
-                  "24hr Response: Quick expert feedback",
-                  "98% Success: Proven track record",
-                  "Certified Experts: Industry professionals"
+                  { title: "100% Free", desc: "No hidden charges" },
+                  { title: "24hr Response", desc: "Quick expert feedback" },
+                  { title: "98% Success", desc: "Proven track record" },
+                  { title: "Certified Experts", desc: "Industry professionals" }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-white/90 text-sm font-medium">
-                    <PiCheckCircleFill size={20} className="text-brand-400" />
-                    {item}
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="mt-0.5">
+                      <PiCheckCircleFill size={20} className="text-brand-300" />
+                    </div>
+                    <div>
+                      <span className="text-white font-semibold text-sm">{item.title}:</span>
+                      <span className="text-white/70 text-sm ml-1">{item.desc}</span>
+                    </div>
                   </div>
                 ))}
-              </div>
+              </motion.div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-brand-900 border-white shadow-[0_4px_0_0_#4c1d95] hover:bg-gray-50 hover:shadow-[0_4px_0_0_#3b0764]">Book Your Free Consultation</Button>
-                <Button size="lg" variant="outline" className="border-brand-500 text-white shadow-[0_4px_0_0_#4c1d95] hover:bg-brand-800 hover:text-white hover:border-brand-400">Learn More</Button>
-              </div>
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                className="flex flex-col sm:flex-row gap-4"
+              >
+                <button className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/20 hover:border-white/50 transition-all duration-300 text-sm">
+                  Book Free Consultation
+                </button>
+                <button className="px-8 py-4 bg-brand-500 text-white font-semibold rounded-xl shadow-lg shadow-brand-900/30 hover:bg-brand-400 transition-all duration-300 text-sm">
+                  Learn More
+                </button>
+              </motion.div>
             </div>
 
-            <div className="relative lg:h-full min-h-[400px]">
-              <div className="relative w-full h-full bg-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+            {/* Right Content - Consultant Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 40, rotate: 3 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 3 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+              className="relative"
+            >
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-6 shadow-2xl shadow-black/10 transform rotate-3 hover:rotate-0 transition-all duration-500">
+                {/* Consultant Header */}
                 <div className="flex items-center gap-4 mb-6">
-                  <img src="https://i.pravatar.cc/150?img=32" alt="Expert" className="w-16 h-16 rounded-full border-2 border-brand-400 shadow-lg" />
+                  <div className="relative">
+                    <img
+                      src="https://i.pravatar.cc/150?img=32"
+                      alt="Dr. Sarah Wilson"
+                      className="w-14 h-14 rounded-full border-2 border-white/30 shadow-lg object-cover"
+                    />
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white/30"></div>
+                  </div>
                   <div>
                     <h4 className="text-white font-bold text-lg">Dr. Sarah Wilson</h4>
-                    <p className="text-brand-200 text-sm">Senior Education Consultant</p>
+                    <p className="text-white/60 text-sm">Senior Education Consultant</p>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <div className="h-3 w-3/4 bg-white/20 rounded-full"></div>
-                  <div className="h-3 w-1/2 bg-white/20 rounded-full"></div>
-                  <div className="h-32 w-full bg-white/5 rounded-2xl border border-white/10 mt-6 p-5">
-                    <div className="flex items-center gap-2 text-brand-200 mb-3 font-medium">
-                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                      Status: Reviewing Application
-                    </div>
-                    <p className="text-white/90 text-sm leading-relaxed">"Your profile for MIT looks strong. Let's tweak the SOP to highlight your research experience more effectively..."</p>
-                  </div>
+
+                {/* Skeleton Lines */}
+                <div className="space-y-3 mb-6">
+                  <div className="h-2.5 w-4/5 bg-white/15 rounded-full"></div>
+                  <div className="h-2.5 w-3/5 bg-white/10 rounded-full"></div>
                 </div>
+
+                {/* Status Card */}
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse shadow-lg shadow-green-400/50"></div>
+                    <span className="text-brand-200 text-sm font-semibold">Status: Reviewing Application</span>
+                  </div>
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    "Your profile for MIT looks strong. Let's tweak the SOP to highlight your research experience more effectively..."
+                  </p>
+                </div>
+
+                {/* Decorative Dots */}
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-brand-400 rounded-full opacity-60"></div>
+                <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-brand-300/40 rounded-full"></div>
               </div>
-            </div>
+
+              {/* Floating Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8, duration: 0.4 }}
+                className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-4 py-3 shadow-xl shadow-brand-900/10 flex items-center gap-3"
+              >
+                <div className="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center">
+                  <PiCheckCircleFill className="text-brand-600" size={24} />
+                </div>
+                <div>
+                  <p className="text-gray-900 font-bold text-sm">10,000+</p>
+                  <p className="text-gray-500 text-xs">Students Guided</p>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
