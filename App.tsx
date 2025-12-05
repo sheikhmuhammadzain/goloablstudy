@@ -41,7 +41,7 @@ const destinations = [
   { country: "Canada", desc: "Top educational opportunities", img: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&q=80&w=800" },
   { country: "Australia", desc: "World-class education", img: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&q=80&w=800" },
   { country: "Germany", desc: "Excellence in education", img: "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&q=80&w=800" },
-  { country: "UAE", desc: "Modern educational hub", img: "https://images.unsplash.com/photo-1512453979798-5ea9ba6dfbbe?auto=format&fit=crop&q=80&w=800" },
+  { country: "UAE", desc: "Modern educational hub", img: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dWFlfGVufDB8fDB8fHww" },
 ];
 
 const features = [
@@ -225,7 +225,7 @@ const Hero = () => {
             <div className="absolute inset-0 flex items-center justify-center">
               <svg
                 viewBox="0 0 500 500"
-                className="w-[90%] h-[90%] text-brand-200"
+                className="w-full h-full text-brand-200"
                 fill="currentColor"
               >
                 <path d="M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450.5Q159,407,99.5,339Q40,271,62.5,196Q85,121,156,78Q227,35,309.5,60Q392,85,432,152.5Q472,220,440.5,320.5Z" />
@@ -237,40 +237,8 @@ const Hero = () => {
             <img
               src="/images/hero-student.png"
               alt="Student achieving their dreams"
-              className="relative z-10 w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl"
+              className="relative z-10 w-full max-w-lg lg:max-w-xl object-contain drop-shadow-2xl"
             />
-
-            {/* Floating Badge - Top Right */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="absolute top-10 right-0 lg:right-10 bg-white px-4 py-3 rounded-2xl shadow-lg border border-gray-100 z-20"
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
-                  <PiCheckCircleFill className="text-green-600" size={18} />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-gray-900">Visa Approved</p>
-                  <p className="text-xs text-gray-500">Just now</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Floating Badge - Bottom Left */}
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-10 left-0 lg:left-5 bg-white px-4 py-3 rounded-2xl shadow-lg border border-gray-100 z-20"
-            >
-              <div className="flex items-center gap-2">
-                <PiGraduationCapDuotone className="text-brand-600" size={24} />
-                <div>
-                  <p className="text-sm font-bold text-gray-900">500+ Universities</p>
-                  <p className="text-xs text-gray-500">Partner institutions</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
 
         </div>
@@ -299,7 +267,6 @@ const WhyChooseUs = () => {
               className="group p-8 rounded-3xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] transition-all duration-300"
             >
               <div className="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mb-6 group-hover:scale-110 transition-transform shadow-sm">
-                {/* Duotone icons add a lot of personality */}
                 <feature.icon size={32} />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
@@ -389,16 +356,12 @@ const ExpertGuidance = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                {/* Primary Button Override: White Button with Dark Purple 3D Shadow */}
                 <Button size="lg" className="bg-white text-brand-900 border-white shadow-[0_4px_0_0_#4c1d95] hover:bg-gray-50 hover:shadow-[0_4px_0_0_#3b0764]">Book Your Free Consultation</Button>
-
-                {/* Outline Button Override for Dark Background */}
                 <Button size="lg" variant="outline" className="border-brand-500 text-white shadow-[0_4px_0_0_#4c1d95] hover:bg-brand-800 hover:text-white hover:border-brand-400">Learn More</Button>
               </div>
             </div>
 
             <div className="relative lg:h-full min-h-[400px]">
-              {/* Abstract visual representation of a dashboard/profile */}
               <div className="relative w-full h-full bg-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="flex items-center gap-4 mb-6">
                   <img src="https://i.pravatar.cc/150?img=32" alt="Expert" className="w-16 h-16 rounded-full border-2 border-brand-400 shadow-lg" />
