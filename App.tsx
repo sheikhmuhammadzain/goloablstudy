@@ -115,107 +115,162 @@ const Navbar = () => {
 // --- Hero Component ---
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-white">
-      {/* Background Decor */}
+    <section className="relative pt-28 pb-16 overflow-hidden bg-white">
+      {/* Subtle Grid Background */}
       <div className="absolute inset-0 z-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
 
-      {/* Subtle Gradient Blob (Left) */}
-      <div className="absolute top-0 left-0 -ml-20 -mt-20 w-[600px] h-[600px] bg-brand-100/50 rounded-full blur-[120px] pointer-events-none opacity-60 mix-blend-multiply"></div>
-
-      {/* Subtle Gradient Blob (Right/Center) */}
-      <div className="absolute top-1/4 left-1/2 w-[500px] h-[500px] bg-blue-50/60 rounded-full blur-[100px] pointer-events-none opacity-50 mix-blend-multiply"></div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-600 text-xs font-semibold mb-6 uppercase tracking-wide"
-          >
-            <PiSparkleFill className="w-4 h-4" />
-            Smart Match Technology
-          </motion.div>
+          {/* Left Content */}
+          <div className="order-2 lg:order-1">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] mb-6"
+            >
+              Your Gateway to{' '}
+              <span className="text-brand-600">Global Education</span>
+            </motion.h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.1]"
-          >
-            GateWay to <span className="text-brand-600">Education</span>
-          </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed"
+            >
+              Discover thousands of study abroad programs, connect with top universities, and transform your future with AI-powered personalized guidance.
+            </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl"
-          >
-            Discover thousands of study abroad programs, connect with top universities, and transform your future with personalized guidance every step of the way.
-          </motion.p>
+            {/* Primary Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="flex flex-wrap gap-4 mb-8"
+            >
+              <Button size="lg">Get Started</Button>
+              <Button size="lg" variant="secondary">Learn More</Button>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="w-full max-w-lg relative group"
-          >
-            <div className="relative flex items-center bg-white rounded-2xl shadow-xl shadow-gray-200/50 p-2 border-2 border-gray-100">
-              <PiMagnifyingGlassBold className="w-5 h-5 text-gray-400 ml-3" />
-              <input
-                type="text"
-                placeholder="What do you want to learn?"
-                className="flex-1 px-4 py-3 text-gray-700 placeholder-gray-400 bg-transparent focus:outline-none text-base font-medium"
-              />
-              <Button>Search</Button>
-            </div>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="grid grid-cols-3 gap-8 md:gap-16 mt-20"
-          >
-            {stats.map((stat, idx) => (
-              <div key={idx} className="flex flex-col items-center">
-                <span className="text-3xl md:text-4xl font-bold text-gray-900 block mb-1">{stat.value}</span>
-                <span className="text-sm text-gray-500 uppercase tracking-wide font-medium">{stat.label}</span>
+            {/* Students Count with Avatars */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="flex items-center gap-4 mb-8"
+            >
+              <div className="flex -space-x-3">
+                {[11, 12, 13, 14].map(i => (
+                  <img
+                    key={i}
+                    className="w-10 h-10 rounded-full border-2 border-white shadow-sm"
+                    src={`https://i.pravatar.cc/100?img=${i}`}
+                    alt="Student"
+                  />
+                ))}
               </div>
-            ))}
-          </motion.div>
+              <div>
+                <p className="font-bold text-gray-900">5.1K+</p>
+                <p className="text-sm text-gray-500">Students all over the world</p>
+              </div>
+            </motion.div>
 
-          {/* Floating UI Elements (Decorative) */}
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="hidden lg:flex absolute top-20 -left-20 bg-white p-4 rounded-2xl shadow-lg border border-gray-100 items-center gap-3"
-          >
-            <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-              <PiCheckCircleFill size={20} />
-            </div>
-            <div>
-              <p className="text-sm font-bold text-gray-900">Visa Approved</p>
-              <p className="text-xs text-gray-500">Just now</p>
-            </div>
-          </motion.div>
+            {/* Secondary Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="flex flex-wrap gap-3 mb-12"
+            >
+              <button className="px-5 py-2.5 rounded-full border-2 border-gray-200 text-sm font-semibold text-gray-700 hover:border-brand-300 hover:text-brand-600 transition-colors">
+                Book Free Consultation
+              </button>
+              <button className="px-5 py-2.5 rounded-full border-2 border-gray-200 text-sm font-semibold text-gray-700 hover:border-brand-300 hover:text-brand-600 transition-colors">
+                See Success Stories
+              </button>
+            </motion.div>
 
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className="flex gap-8 lg:gap-12"
+            >
+              <div className="border-l-4 border-brand-500 pl-4">
+                <p className="text-3xl lg:text-4xl font-bold text-gray-900">6,409</p>
+                <p className="text-sm text-gray-500 font-medium">Success Stories</p>
+              </div>
+              <div className="border-l-4 border-brand-300 pl-4">
+                <p className="text-3xl lg:text-4xl font-bold text-gray-900">54,749</p>
+                <p className="text-sm text-gray-500 font-medium">Hours of Guidance</p>
+              </div>
+              <div className="border-l-4 border-brand-200 pl-4">
+                <p className="text-3xl lg:text-4xl font-bold text-gray-900">124</p>
+                <p className="text-sm text-gray-500 font-medium">Expert Consultants</p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Content - Image with Blob */}
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-            className="hidden lg:flex absolute bottom-40 -right-20 bg-white p-4 rounded-2xl shadow-lg border border-gray-100 items-center gap-3"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="order-1 lg:order-2 relative flex justify-center"
           >
-            <div className="flex -space-x-3">
-              {[1, 2, 3].map(i => (
-                <img key={i} className="w-8 h-8 rounded-full border-2 border-white" src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Student" />
-              ))}
+            {/* Decorative Blob Shape */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <svg
+                viewBox="0 0 500 500"
+                className="w-[90%] h-[90%] text-brand-200"
+                fill="currentColor"
+              >
+                <path d="M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450.5Q159,407,99.5,339Q40,271,62.5,196Q85,121,156,78Q227,35,309.5,60Q392,85,432,152.5Q472,220,440.5,320.5Z" />
+              </svg>
             </div>
-            <div>
-              <p className="text-sm font-bold text-gray-900">10k+ Students</p>
-              <p className="text-xs text-gray-500">Studying abroad</p>
-            </div>
+
+            {/* Hero Image - Replace this path with your image */}
+            {/* IMAGE PATH: /images/hero-student.png */}
+            <img
+              src="/images/hero-student.png"
+              alt="Student achieving their dreams"
+              className="relative z-10 w-full max-w-md lg:max-w-lg object-contain drop-shadow-2xl"
+            />
+
+            {/* Floating Badge - Top Right */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="absolute top-10 right-0 lg:right-10 bg-white px-4 py-3 rounded-2xl shadow-lg border border-gray-100 z-20"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                  <PiCheckCircleFill className="text-green-600" size={18} />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-gray-900">Visa Approved</p>
+                  <p className="text-xs text-gray-500">Just now</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Floating Badge - Bottom Left */}
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-10 left-0 lg:left-5 bg-white px-4 py-3 rounded-2xl shadow-lg border border-gray-100 z-20"
+            >
+              <div className="flex items-center gap-2">
+                <PiGraduationCapDuotone className="text-brand-600" size={24} />
+                <div>
+                  <p className="text-sm font-bold text-gray-900">500+ Universities</p>
+                  <p className="text-xs text-gray-500">Partner institutions</p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
         </div>
