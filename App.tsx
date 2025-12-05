@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  PiMagnifyingGlassBold, 
-  PiListBold, 
-  PiXBold, 
-  PiGraduationCapDuotone, 
-  PiGlobeHemisphereWestFill, 
-  PiUsersFill, 
-  PiArrowRightBold, 
-  PiCheckCircleFill, 
+import {
+  PiMagnifyingGlassBold,
+  PiListBold,
+  PiXBold,
+  PiGraduationCapDuotone,
+  PiGlobeHemisphereWestFill,
+  PiUsersFill,
+  PiArrowRightBold,
+  PiCheckCircleFill,
   PiSparkleFill,
   PiSparkleDuotone,
   PiBookOpenTextDuotone,
@@ -91,7 +91,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -118,17 +118,17 @@ const Hero = () => {
     <section className="relative pt-32 pb-20 overflow-hidden bg-white">
       {/* Background Decor */}
       <div className="absolute inset-0 z-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
-      
+
       {/* Subtle Gradient Blob (Left) */}
       <div className="absolute top-0 left-0 -ml-20 -mt-20 w-[600px] h-[600px] bg-brand-100/50 rounded-full blur-[120px] pointer-events-none opacity-60 mix-blend-multiply"></div>
-      
+
       {/* Subtle Gradient Blob (Right/Center) */}
       <div className="absolute top-1/4 left-1/2 w-[500px] h-[500px] bg-blue-50/60 rounded-full blur-[100px] pointer-events-none opacity-50 mix-blend-multiply"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-600 text-xs font-semibold mb-6 uppercase tracking-wide"
@@ -137,7 +137,7 @@ const Hero = () => {
             Smart Match Technology
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -146,7 +146,7 @@ const Hero = () => {
             GateWay to <span className="text-brand-600">Education</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -155,7 +155,7 @@ const Hero = () => {
             Discover thousands of study abroad programs, connect with top universities, and transform your future with personalized guidance every step of the way.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -163,9 +163,9 @@ const Hero = () => {
           >
             <div className="relative flex items-center bg-white rounded-2xl shadow-xl shadow-gray-200/50 p-2 border-2 border-gray-100">
               <PiMagnifyingGlassBold className="w-5 h-5 text-gray-400 ml-3" />
-              <input 
-                type="text" 
-                placeholder="What do you want to learn?" 
+              <input
+                type="text"
+                placeholder="What do you want to learn?"
                 className="flex-1 px-4 py-3 text-gray-700 placeholder-gray-400 bg-transparent focus:outline-none text-base font-medium"
               />
               <Button>Search</Button>
@@ -173,7 +173,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Stats */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -188,7 +188,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Floating UI Elements (Decorative) */}
-          <motion.div 
+          <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
             className="hidden lg:flex absolute top-20 -left-20 bg-white p-4 rounded-2xl shadow-lg border border-gray-100 items-center gap-3"
@@ -202,20 +202,20 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
             className="hidden lg:flex absolute bottom-40 -right-20 bg-white p-4 rounded-2xl shadow-lg border border-gray-100 items-center gap-3"
           >
-             <div className="flex -space-x-3">
-              {[1,2,3].map(i => (
-                <img key={i} className="w-8 h-8 rounded-full border-2 border-white" src={`https://i.pravatar.cc/100?img=${i+10}`} alt="Student" />
+            <div className="flex -space-x-3">
+              {[1, 2, 3].map(i => (
+                <img key={i} className="w-8 h-8 rounded-full border-2 border-white" src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Student" />
               ))}
-             </div>
-             <div>
+            </div>
+            <div>
               <p className="text-sm font-bold text-gray-900">10k+ Students</p>
               <p className="text-xs text-gray-500">Studying abroad</p>
-             </div>
+            </div>
           </motion.div>
 
         </div>
@@ -238,7 +238,7 @@ const WhyChooseUs = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               whileHover={{ y: -5 }}
               className="group p-8 rounded-3xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] transition-all duration-300"
@@ -272,14 +272,14 @@ const PopularDestinations = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {destinations.map((dest, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               whileHover={{ y: -8 }}
               className="group relative overflow-hidden rounded-3xl bg-white shadow-lg cursor-pointer transition-all duration-300"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity opacity-70 group-hover:opacity-90"></div>
               <img src={dest.img} alt={dest.country} className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700" />
-              
+
               <div className="absolute bottom-0 left-0 p-8 z-20 w-full">
                 <h3 className="text-3xl font-bold text-white mb-2 flex items-center gap-2">
                   {dest.country}
@@ -308,7 +308,7 @@ const ExpertGuidance = () => {
           {/* Decorative circles */}
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-700 rounded-full blur-3xl opacity-50"></div>
           <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-brand-500 rounded-full blur-3xl opacity-30"></div>
-          
+
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block px-4 py-1.5 rounded-full bg-brand-800 text-brand-200 text-sm font-semibold mb-6 border border-brand-700">
@@ -318,7 +318,7 @@ const ExpertGuidance = () => {
               <p className="text-brand-100 text-lg mb-8 leading-relaxed">
                 Transform your study abroad dreams into reality with our personalized consultation. Our experts have guided 10,000+ students to success.
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {[
                   "100% Free: No hidden charges",
@@ -336,34 +336,34 @@ const ExpertGuidance = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 {/* Primary Button Override: White Button with Dark Purple 3D Shadow */}
                 <Button size="lg" className="bg-white text-brand-900 border-white shadow-[0_4px_0_0_#4c1d95] hover:bg-gray-50 hover:shadow-[0_4px_0_0_#3b0764]">Book Your Free Consultation</Button>
-                
+
                 {/* Outline Button Override for Dark Background */}
                 <Button size="lg" variant="outline" className="border-brand-500 text-white shadow-[0_4px_0_0_#4c1d95] hover:bg-brand-800 hover:text-white hover:border-brand-400">Learn More</Button>
               </div>
             </div>
 
             <div className="relative lg:h-full min-h-[400px]">
-               {/* Abstract visual representation of a dashboard/profile */}
-               <div className="relative w-full h-full bg-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                  <div className="flex items-center gap-4 mb-6">
-                    <img src="https://i.pravatar.cc/150?img=32" alt="Expert" className="w-16 h-16 rounded-full border-2 border-brand-400 shadow-lg" />
-                    <div>
-                      <h4 className="text-white font-bold text-lg">Dr. Sarah Wilson</h4>
-                      <p className="text-brand-200 text-sm">Senior Education Consultant</p>
-                    </div>
+              {/* Abstract visual representation of a dashboard/profile */}
+              <div className="relative w-full h-full bg-white/10 backdrop-blur-sm rounded-3xl border border-white/10 p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <img src="https://i.pravatar.cc/150?img=32" alt="Expert" className="w-16 h-16 rounded-full border-2 border-brand-400 shadow-lg" />
+                  <div>
+                    <h4 className="text-white font-bold text-lg">Dr. Sarah Wilson</h4>
+                    <p className="text-brand-200 text-sm">Senior Education Consultant</p>
                   </div>
-                  <div className="space-y-4">
-                    <div className="h-3 w-3/4 bg-white/20 rounded-full"></div>
-                    <div className="h-3 w-1/2 bg-white/20 rounded-full"></div>
-                    <div className="h-32 w-full bg-white/5 rounded-2xl border border-white/10 mt-6 p-5">
-                      <div className="flex items-center gap-2 text-brand-200 mb-3 font-medium">
-                         <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
-                         Status: Reviewing Application
-                      </div>
-                      <p className="text-white/90 text-sm leading-relaxed">"Your profile for MIT looks strong. Let's tweak the SOP to highlight your research experience more effectively..."</p>
+                </div>
+                <div className="space-y-4">
+                  <div className="h-3 w-3/4 bg-white/20 rounded-full"></div>
+                  <div className="h-3 w-1/2 bg-white/20 rounded-full"></div>
+                  <div className="h-32 w-full bg-white/5 rounded-2xl border border-white/10 mt-6 p-5">
+                    <div className="flex items-center gap-2 text-brand-200 mb-3 font-medium">
+                      <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                      Status: Reviewing Application
                     </div>
+                    <p className="text-white/90 text-sm leading-relaxed">"Your profile for MIT looks strong. Let's tweak the SOP to highlight your research experience more effectively..."</p>
                   </div>
-               </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -383,9 +383,9 @@ const Newsletter = () => {
         </p>
 
         <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-          <input 
-            type="email" 
-            placeholder="Enter your email address" 
+          <input
+            type="email"
+            placeholder="Enter your email address"
             className="flex-1 px-5 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all font-medium"
           />
           <Button>Subscribe</Button>
@@ -446,8 +446,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">© 2025 GlobalStudyRoad. All rights reserved.</p>
           <div className="flex gap-6">
-             <a href="#" className="text-gray-400 hover:text-brand-600 transition-colors"><PiGlobeHemisphereWestFill size={24}/></a>
-             <a href="#" className="text-gray-400 hover:text-brand-600 transition-colors"><PiUsersFill size={24}/></a>
+            <a href="#" className="text-gray-400 hover:text-brand-600 transition-colors"><PiGlobeHemisphereWestFill size={24} /></a>
+            <a href="#" className="text-gray-400 hover:text-brand-600 transition-colors"><PiUsersFill size={24} /></a>
           </div>
         </div>
       </div>
@@ -463,7 +463,7 @@ const QubitWidget = () => {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -493,9 +493,9 @@ const QubitWidget = () => {
               <p className="text-center text-xs text-gray-400 mt-2">Qubit AI is here! ✨</p>
             </div>
             <div className="p-3 border-t border-gray-100 bg-white">
-              <input 
-                type="text" 
-                placeholder="Ask anything..." 
+              <input
+                type="text"
+                placeholder="Ask anything..."
                 className="w-full px-4 py-2 bg-gray-50 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 border border-gray-100"
               />
             </div>
@@ -503,7 +503,7 @@ const QubitWidget = () => {
         )}
       </AnimatePresence>
 
-      <motion.button 
+      <motion.button
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}

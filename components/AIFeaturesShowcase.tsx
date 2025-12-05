@@ -68,8 +68,88 @@ export const AIFeaturesShowcase: React.FC = () => {
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header Section */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        {/* Header Section with Doodles */}
+        <div className="text-center max-w-3xl mx-auto mb-16 relative">
+
+          {/* Doodle: Star - Left Side */}
+          <motion.svg
+            initial={{ opacity: 0, scale: 0, rotate: -20 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+            className="absolute -left-4 md:-left-16 top-8 w-8 h-8 md:w-10 md:h-10 text-brand-400"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M12 2L14.09 8.26L21 9.27L16 13.97L17.18 21L12 17.77L6.82 21L8 13.97L3 9.27L9.91 8.26L12 2Z" />
+          </motion.svg>
+
+          {/* Doodle: Sparkle Dots - Right */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="absolute -right-2 md:-right-12 top-4 flex flex-col gap-2"
+          >
+            <span className="text-yellow-400 text-xl">✦</span>
+            <span className="text-brand-300 text-sm ml-2">✦</span>
+            <span className="text-yellow-300 text-xs ml-1">✦</span>
+          </motion.div>
+
+          {/* Doodle: Curved Arrow - Top Right */}
+          <motion.svg
+            initial={{ opacity: 0, pathLength: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="absolute right-8 md:right-16 -top-4 w-10 h-10 md:w-12 md:h-12 text-brand-300 hidden md:block"
+            viewBox="0 0 50 50"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          >
+            <path d="M10 35 Q 25 5, 42 18" />
+            <path d="M36 12 L 42 18 L 34 22" />
+          </motion.svg>
+
+          {/* Doodle: Small Circle - Bottom Left */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+            className="absolute left-8 md:left-0 bottom-0 w-3 h-3 rounded-full bg-brand-200 hidden md:block"
+          />
+
+          {/* Doodle: Plus Sign */}
+          <motion.div
+            initial={{ opacity: 0, rotate: -45 }}
+            whileInView={{ opacity: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.7 }}
+            className="absolute -left-2 md:left-4 bottom-8 text-brand-300 text-2xl font-light hidden md:block"
+          >
+            +
+          </motion.div>
+
+          {/* Doodle: Wavy Line - Right Side */}
+          <motion.svg
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="absolute -right-4 md:right-4 bottom-4 w-8 h-6 text-yellow-400 hidden md:block"
+            viewBox="0 0 40 20"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          >
+            <path d="M2 10 Q 10 2, 20 10 T 38 10" />
+          </motion.svg>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -80,22 +160,47 @@ export const AIFeaturesShowcase: React.FC = () => {
             <span>Powered by Qubit Dynamics AI</span>
           </motion.div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-          >
-            Intelligent Scholarship Discovery
-          </motion.h2>
+          {/* Title with Underline Doodle */}
+          <div className="relative inline-block">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-2"
+            >
+              Intelligent Scholarship Discovery
+            </motion.h2>
+
+            {/* Doodle: Hand-drawn Underline */}
+            <motion.svg
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56 md:w-72 h-3"
+              viewBox="0 0 200 12"
+              fill="none"
+            >
+              <motion.path
+                d="M3 8 Q 50 2, 100 7 T 197 5"
+                stroke="#a78bfa"
+                strokeWidth="3"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              />
+            </motion.svg>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-gray-600"
+            className="text-lg text-gray-600 mt-6"
           >
             Experience the future of education with our suite of AI tools designed to analyze, match, and optimize your path to success.
           </motion.p>
