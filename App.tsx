@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import {
   PiMagnifyingGlassBold,
   PiListBold,
@@ -22,6 +22,35 @@ import { Marquee } from './components/Marquee';
 import { AIFeaturesShowcase } from './components/AIFeaturesShowcase';
 import { Testimonials } from './components/Testimonials';
 import { FAQSection } from './components/FAQSection';
+
+// --- Unique Animation Variants ---
+const uniqueAnimations = {
+  blurReveal: {
+    hidden: { opacity: 0, filter: 'blur(10px)', y: 30 },
+    visible: {
+      opacity: 1, filter: 'blur(0px)', y: 0,
+      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  },
+  flipReveal: {
+    hidden: { opacity: 0, rotateX: -20, y: 40 },
+    visible: {
+      opacity: 1, rotateX: 0, y: 0,
+      transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] }
+    }
+  },
+  staggerContainer: {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } }
+  },
+  scaleRotate: {
+    hidden: { opacity: 0, scale: 0.8, rotate: -5 },
+    visible: {
+      opacity: 1, scale: 1, rotate: 0,
+      transition: { type: "spring", stiffness: 200, damping: 20 }
+    }
+  }
+};
 
 // --- Types ---
 interface Stat {
@@ -282,31 +311,50 @@ const Hero = () => {
 
 // --- Features Section ---
 const WhyChooseUs = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
   return (
-    <section className="py-24 bg-white">
+    <section ref={sectionRef} className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div
+          className="text-center max-w-2xl mx-auto mb-16"
+          variants={uniqueAnimations.blurReveal}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why choose us</h2>
           <p className="text-lg text-gray-600">
             Discover what makes us the preferred choice. We combine expert guidance, AI precision, and a proven process.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={uniqueAnimations.staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ y: -5 }}
-              className="group p-8 rounded-3xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] transition-all duration-300"
+              variants={uniqueAnimations.flipReveal}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group p-8 rounded-3xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)] transition-shadow duration-300"
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              <div className="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mb-6 group-hover:scale-110 transition-transform shadow-sm">
+              <motion.div
+                className="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 mb-6 shadow-sm"
+                whileHover={{ rotate: [0, -10, 10, 0] }}
+                transition={{ duration: 0.5 }}
+              >
                 <feature.icon size={32} />
-              </div>
+              </motion.div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
               <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -314,23 +362,43 @@ const WhyChooseUs = () => {
 
 // --- Destinations Section ---
 const PopularDestinations = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+
   return (
-    <section className="py-24 bg-gray-50">
+    <section ref={sectionRef} className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-end mb-12">
+        <motion.div
+          className="flex justify-between items-end mb-12"
+          variants={uniqueAnimations.scaleRotate}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Popular Destinations</h2>
             <p className="text-lg text-gray-600">Explore the world's best study destinations and discover opportunities that match your career goals.</p>
           </div>
           <Button variant="secondary" className="hidden md:flex">View all places</Button>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={uniqueAnimations.staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {destinations.map((dest, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ y: -8 }}
-              className="group relative overflow-hidden rounded-3xl bg-white shadow-lg cursor-pointer transition-all duration-300"
+              variants={{
+                hidden: { opacity: 0, y: 60, scale: 0.9 },
+                visible: {
+                  opacity: 1, y: 0, scale: 1,
+                  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+                }
+              }}
+              whileHover={{ y: -12, scale: 1.02 }}
+              className="group relative overflow-hidden rounded-3xl bg-white shadow-lg cursor-pointer"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity opacity-70 group-hover:opacity-90"></div>
               <img src={dest.img} alt={dest.country} className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -348,7 +416,7 @@ const PopularDestinations = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -389,7 +457,7 @@ const ExpertGuidance = () => {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-semibold mb-8 border border-white/20"
               >
-                <PiSparkleFill className="text-brand-300" size={16} />
+                <span className="text-brand-300"><PiSparkleFill size={16} /></span>
                 Expert Guidance
               </motion.div>
 
@@ -429,7 +497,7 @@ const ExpertGuidance = () => {
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="mt-0.5">
-                      <PiCheckCircleFill size={20} className="text-brand-300" />
+                      <span className="text-brand-300"><PiCheckCircleFill size={20} /></span>
                     </div>
                     <div>
                       <span className="text-white font-semibold text-sm">{item.title}:</span>
@@ -512,7 +580,7 @@ const ExpertGuidance = () => {
                 className="absolute -bottom-4 -left-4 bg-white rounded-2xl px-4 py-3 shadow-xl shadow-brand-900/10 flex items-center gap-3"
               >
                 <div className="w-10 h-10 bg-brand-100 rounded-xl flex items-center justify-center">
-                  <PiCheckCircleFill className="text-brand-600" size={24} />
+                  <span className="text-brand-600"><PiCheckCircleFill size={24} /></span>
                 </div>
                 <div>
                   <p className="text-gray-900 font-bold text-sm">10,000+</p>
